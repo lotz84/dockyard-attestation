@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BirthDate Attestation</title>
+  </head>
+  <body>
+    <button id='js-login'>uPort Login</button>
+    <div id='js-profile' v-if="seen">
+      <h2>プロフィール画像</h2>
+      <img v-bind:src="image" />
+      <p>{{ name }}</p>
+
+      <div v-if='!bdExist'>
+        生年月日を入力:
+        <input v-model='birthdate' type='date' />
+        <br />
+        <button @click="attestation">Attestation</button>
+      </div>
+
+      <div v-if='bdExist'>
+        生年月日: {{ birthdate }}
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/uport-connect/dist/uport-connect.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
